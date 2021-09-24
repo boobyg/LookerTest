@@ -2,10 +2,30 @@ view: ga_sessions_20170127 {
   sql_table_name: `test-co-ramp.testco.ga_sessions_20170127`
     ;;
 
+dimension : primary_key {
+  primary_key: yes
+  sql:GENERATE_UUID() ;;
+  action: {   label: "Update Money Spent"
+    url: "https://my.yahoo.com"
+    param: {
+      name:"id"
+      value: "{{value}}"
+    }
+    form_param: {
+      name: "changeamount"
+      type: string
+      label: "Amount"
+      description: "Enter new amount above."
+      required: yes
+    }
+  }
+
+}
   dimension: channel_grouping {
     type: string
     sql: ${TABLE}.channelGrouping ;;
   }
+
 
   dimension: custom_dimensions {
     hidden: yes
@@ -23,6 +43,12 @@ view: ga_sessions_20170127 {
     group_label: "Device"
     group_item_label: "Browser"
   }
+
+  measure: device_browser_list {    # for pivot
+    type: list
+    list_field: device__browser
+  }
+
 
   dimension: device__browser_size {
     type: string
@@ -167,6 +193,7 @@ view: ga_sessions_20170127 {
     sql: ${TABLE}.geoNetwork.country ;;
     group_label: "Geo Network"
     group_item_label: "Country"
+    map_layer_name: world_admin_map
   }
 
   dimension: geo_network__latitude {
@@ -2008,5 +2035,12 @@ view: ga_sessions_20170127__hits__product__custom_dimensions {
   dimension: value {
     type: string
     sql: ${TABLE}.value ;;
+  }
+
+  dimension: OR_Filter {
+    hidden:  yes
+    type:yesno
+    sql:  ${ga_sessions_20170127.device__browser} = "Edge"
+      OR ${ga_sessions_20170127.traffic_source__source} = "Google.com" ;;
   }
 }
