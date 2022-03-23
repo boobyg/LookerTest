@@ -42,6 +42,10 @@ dimension : primary_key {
     sql: ${TABLE}.device.browser ;;
     group_label: "Device"
     group_item_label: "Browser"
+    html:
+    {{rendered_value}}
+    <img src="https://cdn2.iconfinder.com/data/icons/freecns-cumulus/32/519791-101_Warning-512.png" alt="Warning!" style="width:20px;height:20px;"> Warning try
+    ;;
   }
 
   measure: device_browser_list {    # for pivot
