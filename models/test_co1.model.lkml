@@ -1,4 +1,4 @@
-connection: "google_analytics_sample"
+connection: "google_analytics_sample_argolis"
 include: "../DataTest.lkml"
 
 
@@ -15,79 +15,79 @@ map_layer: world_admin_map {
   property_key: "NAME_EN"
 }
 # Un-hide and use this explore, or copy the joins into another explore, to get all the fully nested relationships from this view
-explore: ga_sessions_20170127 {
-  label: "Google Analytics data a/o Jan 27,2017"
+explore: ga_sessions_20170128 {
+  label: "Google Analytics data a/o Jan 28,2017"
 
   always_filter: {
     filters: {
-      field: ga_sessions_20170127__hits__product__custom_dimensions.OR_Filter
+      field: ga_sessions_20170128__hits__product__custom_dimensions.OR_Filter
       value: "no"
     }
   }
 
-  join: ga_sessions_20170127__hits {
-    view_label: "Ga Sessions 20170127: Hits"
-    sql: LEFT JOIN UNNEST(${ga_sessions_20170127.hits}) as ga_sessions_20170127__hits ;;
+  join: ga_sessions_20170128__hits {
+    view_label: "Ga Sessions 20170128: Hits"
+    sql: LEFT JOIN UNNEST(${ga_sessions_20170128.hits}) as ga_sessions_20170128__hits ;;
     relationship: one_to_many
   }
 
-  join: ga_sessions_20170127__hits__product {
-    view_label: "Ga Sessions 20170127: Hits Product"
-    sql: LEFT JOIN UNNEST(${ga_sessions_20170127__hits.product}) as ga_sessions_20170127__hits__product ;;
+  join: ga_sessions_20170128__hits__product {
+    view_label: "Ga Sessions 20170128: Hits Product"
+    sql: LEFT JOIN UNNEST(${ga_sessions_20170128__hits.product}) as ga_sessions_20170128__hits__product ;;
     relationship: one_to_many
   }
 
-  join: ga_sessions_20170127__custom_dimensions {
-    view_label: "Ga Sessions 20170127: Customdimensions"
-    sql: LEFT JOIN UNNEST(${ga_sessions_20170127.custom_dimensions}) as ga_sessions_20170127__custom_dimensions ;;
+  join: ga_sessions_20170128__custom_dimensions {
+    view_label: "Ga Sessions 20170128: Customdimensions"
+    sql: LEFT JOIN UNNEST(${ga_sessions_20170128.custom_dimensions}) as ga_sessions_20170128__custom_dimensions ;;
     relationship: one_to_many
   }
 
-  join: ga_sessions_20170127__hits__promotion {
-    view_label: "Ga Sessions 20170127: Hits Promotion"
-    sql: LEFT JOIN UNNEST(${ga_sessions_20170127__hits.promotion}) as ga_sessions_20170127__hits__promotion ;;
+  join: ga_sessions_20170128__hits__promotion {
+    view_label: "Ga Sessions 20170128: Hits Promotion"
+    sql: LEFT JOIN UNNEST(${ga_sessions_20170128__hits.promotion}) as ga_sessions_20170128__hits__promotion ;;
     relationship: one_to_many
   }
 
-  join: ga_sessions_20170127__hits__custom_metrics {
-    view_label: "Ga Sessions 20170127: Hits Custommetrics"
-    sql: LEFT JOIN UNNEST(${ga_sessions_20170127__hits.custom_metrics}) as ga_sessions_20170127__hits__custom_metrics ;;
+  join: ga_sessions_20170128__hits__custom_metrics {
+    view_label: "Ga Sessions 20170128: Hits Custommetrics"
+    sql: LEFT JOIN UNNEST(${ga_sessions_20170128__hits.custom_metrics}) as ga_sessions_20170128__hits__custom_metrics ;;
     relationship: one_to_many
   }
 
-  join: ga_sessions_20170127__hits__custom_variables {
-    view_label: "Ga Sessions 20170127: Hits Customvariables"
-    sql: LEFT JOIN UNNEST(${ga_sessions_20170127__hits.custom_variables}) as ga_sessions_20170127__hits__custom_variables ;;
+  join: ga_sessions_20170128__hits__custom_variables {
+    view_label: "Ga Sessions 20170128: Hits Customvariables"
+    sql: LEFT JOIN UNNEST(${ga_sessions_20170128__hits.custom_variables}) as ga_sessions_20170128__hits__custom_variables ;;
     relationship: one_to_many
   }
 
-  join: ga_sessions_20170127__hits__custom_dimensions {
-    view_label: "Ga Sessions 20170127: Hits Customdimensions"
-    sql: LEFT JOIN UNNEST(${ga_sessions_20170127__hits.custom_dimensions}) as ga_sessions_20170127__hits__custom_dimensions ;;
+  join: ga_sessions_20170128__hits__custom_dimensions {
+    view_label: "Ga Sessions 20170128: Hits Customdimensions"
+    sql: LEFT JOIN UNNEST(${ga_sessions_20170128__hits.custom_dimensions}) as ga_sessions_20170128__hits__custom_dimensions ;;
     relationship: one_to_many
   }
 
-  join: ga_sessions_20170127__hits__experiment {
-    view_label: "Ga Sessions 20170127: Hits Experiment"
-    sql: LEFT JOIN UNNEST(${ga_sessions_20170127__hits.experiment}) as ga_sessions_20170127__hits__experiment ;;
+  join: ga_sessions_20170128__hits__experiment {
+    view_label: "Ga Sessions 20170128: Hits Experiment"
+    sql: LEFT JOIN UNNEST(${ga_sessions_20170128__hits.experiment}) as ga_sessions_20170128__hits__experiment ;;
     relationship: one_to_many
   }
 
-  join: ga_sessions_20170127__hits__publisher_infos {
-    view_label: "Ga Sessions 20170127: Hits Publisher Infos"
-    sql: LEFT JOIN UNNEST(${ga_sessions_20170127__hits.publisher_infos}) as ga_sessions_20170127__hits__publisher_infos ;;
+  join: ga_sessions_20170128__hits__publisher_infos {
+    view_label: "Ga Sessions 20170128: Hits Publisher Infos"
+    sql: LEFT JOIN UNNEST(${ga_sessions_20170128__hits.publisher_infos}) as ga_sessions_20170128__hits__publisher_infos ;;
     relationship: one_to_many
   }
 
-  join: ga_sessions_20170127__hits__product__custom_metrics {
-    view_label: "Ga Sessions 20170127: Hits Product Custommetrics"
-    sql: LEFT JOIN UNNEST(${ga_sessions_20170127__hits__product.custom_metrics}) as ga_sessions_20170127__hits__product__custom_metrics ;;
+  join: ga_sessions_20170128__hits__product__custom_metrics {
+    view_label: "Ga Sessions 20170128: Hits Product Custommetrics"
+    sql: LEFT JOIN UNNEST(${ga_sessions_20170128__hits__product.custom_metrics}) as ga_sessions_20170128__hits__product__custom_metrics ;;
     relationship: one_to_many
   }
 
-  join: ga_sessions_20170127__hits__product__custom_dimensions {
-    view_label: "Ga Sessions 20170127: Hits Product Customdimensions"
-    sql: LEFT JOIN UNNEST(${ga_sessions_20170127__hits__product.custom_dimensions}) as ga_sessions_20170127__hits__product__custom_dimensions ;;
+  join: ga_sessions_20170128__hits__product__custom_dimensions {
+    view_label: "Ga Sessions 20170128: Hits Product Customdimensions"
+    sql: LEFT JOIN UNNEST(${ga_sessions_20170128__hits__product.custom_dimensions}) as ga_sessions_20170128__hits__product__custom_dimensions ;;
     relationship: one_to_many
   }
 }

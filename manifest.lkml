@@ -50,3 +50,16 @@ constant: CONNECTION_NAME {
   value: "google_analytics_sample"
   export: override_required
 }
+
+# # Use local_dependency: To enable referencing of another project
+# # on this instance with include: statements
+#
+
+localization_settings: {
+  default_locale: en
+  localization_level: permissive
+}
+
+# local_dependency: {
+#   project: "ecomm"
+# }

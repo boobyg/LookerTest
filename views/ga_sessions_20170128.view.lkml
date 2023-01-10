@@ -1,5 +1,5 @@
-view: ga_sessions_20170127 {
-  sql_table_name: `test-co-ramp.testco.ga_sessions_20170127`
+view: ga_sessions_20170128 {
+  sql_table_name: `ga_sessions_20170128`
     ;;
 
 dimension : primary_key {
@@ -517,7 +517,7 @@ dimension : primary_key {
   }
 }
 
-view: ga_sessions_20170127__hits {
+view: ga_sessions_20170128__hits {
   dimension: app_info__app_id {
     type: string
     sql: ${TABLE}.appInfo.appId ;;
@@ -1603,7 +1603,7 @@ view: ga_sessions_20170127__hits {
   }
 }
 
-view: ga_sessions_20170127__hits__product {
+view: ga_sessions_20170128__hits__product {
   dimension: custom_dimensions {
     hidden: yes
     sql: ${TABLE}.customDimensions ;;
@@ -1695,7 +1695,7 @@ view: ga_sessions_20170127__hits__product {
   }
 }
 
-view: ga_sessions_20170127__custom_dimensions {
+view: ga_sessions_20170128__custom_dimensions {
   dimension: index {
     type: number
     sql: ${TABLE}.index ;;
@@ -1707,7 +1707,7 @@ view: ga_sessions_20170127__custom_dimensions {
   }
 }
 
-view: ga_sessions_20170127__hits__promotion {
+view: ga_sessions_20170128__hits__promotion {
   dimension: promo_creative {
     type: string
     sql: ${TABLE}.promoCreative ;;
@@ -1729,7 +1729,7 @@ view: ga_sessions_20170127__hits__promotion {
   }
 }
 
-view: ga_sessions_20170127__hits__custom_metrics {
+view: ga_sessions_20170128__hits__custom_metrics {
   dimension: index {
     type: number
     sql: ${TABLE}.index ;;
@@ -1741,7 +1741,7 @@ view: ga_sessions_20170127__hits__custom_metrics {
   }
 }
 
-view: ga_sessions_20170127__hits__custom_variables {
+view: ga_sessions_20170128__hits__custom_variables {
   dimension: custom_var_name {
     type: string
     sql: ${TABLE}.customVarName ;;
@@ -1758,7 +1758,7 @@ view: ga_sessions_20170127__hits__custom_variables {
   }
 }
 
-view: ga_sessions_20170127__hits__custom_dimensions {
+view: ga_sessions_20170128__hits__custom_dimensions {
   dimension: index {
     type: number
     sql: ${TABLE}.index ;;
@@ -1770,7 +1770,7 @@ view: ga_sessions_20170127__hits__custom_dimensions {
   }
 }
 
-view: ga_sessions_20170127__hits__experiment {
+view: ga_sessions_20170128__hits__experiment {
   dimension: experiment_id {
     type: string
     sql: ${TABLE}.experimentId ;;
@@ -1782,7 +1782,7 @@ view: ga_sessions_20170127__hits__experiment {
   }
 }
 
-view: ga_sessions_20170127__hits__publisher_infos {
+view: ga_sessions_20170128__hits__publisher_infos {
   dimension: ads_clicked {
     type: number
     sql: ${TABLE}.adsClicked ;;
@@ -2014,7 +2014,7 @@ view: ga_sessions_20170127__hits__publisher_infos {
   }
 }
 
-view: ga_sessions_20170127__hits__product__custom_metrics {
+view: ga_sessions_20170128__hits__product__custom_metrics {
   dimension: index {
     type: number
     sql: ${TABLE}.index ;;
@@ -2026,7 +2026,7 @@ view: ga_sessions_20170127__hits__product__custom_metrics {
   }
 }
 
-view: ga_sessions_20170127__hits__product__custom_dimensions {
+view: ga_sessions_20170128__hits__product__custom_dimensions {
   dimension: index {
     type: number
     sql: ${TABLE}.index ;;
@@ -2040,7 +2040,7 @@ view: ga_sessions_20170127__hits__product__custom_dimensions {
   dimension: OR_Filter {
     hidden:  yes
     type:yesno
-    sql:  ${ga_sessions_20170127.device__browser} = "Edge"
-      OR ${ga_sessions_20170127.traffic_source__source} = "Google.com" ;;
+    sql:  ${ga_sessions_20170128.device__browser} = "Edge"
+      OR ${ga_sessions_20170128.traffic_source__source} = "Google.com" ;;
   }
 }
